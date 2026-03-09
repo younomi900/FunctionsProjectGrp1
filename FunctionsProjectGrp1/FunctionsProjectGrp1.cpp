@@ -19,6 +19,8 @@ int main()
     {
         cout << finalarray[i] << " ";
     }
+
+    ShowMenu();
 }
 
 void InputList(int array[], int size)
@@ -31,6 +33,10 @@ void InputList(int array[], int size)
 
 void ShowMenu()
 {
+    int optionnum;
 
+    cout << "\n 1. Display\n 2. GetTotal\n 3. GetAverage\n 4. GetLargest\n 5. GetSmallest\n 6. GetNumOcurrences\n 7. ScaleUp\n 8. Reverse\n 9. ZeroBase\n 10. RemoveNumber\n 11. Sort\n 12. Quit\n";
+
+    cin >> optionnum;
 }
 
