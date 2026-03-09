@@ -4,11 +4,11 @@
 using namespace std;
 
 void InputList(int array[], int size);
-void ShowMenu();
+void ShowMenu(int optionnum);
 
 int main()
 {
-    int finalarray[12];
+    int finalarray[12], option_num;
     const int arrsize = 12;
 
     cout << "Enter an array of 12 digits: ";
@@ -20,7 +20,12 @@ int main()
         cout << finalarray[i] << " ";
     }
 
-    ShowMenu();
+    ShowMenu(option_num);
+
+    if (option_num = 1)
+    {
+        
+    }
 }
 
 void InputList(int array[], int size)
@@ -31,7 +36,7 @@ void InputList(int array[], int size)
     }
 }
 
-void ShowMenu()
+void ShowMenu(int optionnum)
 {
     int optionnum;
 
