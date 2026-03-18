@@ -8,7 +8,7 @@ int ShowMenu();
 
 int main()
 {
-    int finalarray[12], option_num;
+    int finalarray[12], option_num, total = 0;
     const int arrsize = 12;
 
     cout << "Enter an array of 12 digits: ";
@@ -19,12 +19,18 @@ int main()
 
     if (option_num == 1)
     {
-        cout << "1 Test Works";
-
         for (int i = 0; i < arrsize; i++)
         {
             cout << finalarray[i] << " ";
         }
+    }
+    else if (option_num == 2)
+    {
+        for (int i = 0; i < arrsize; i++)
+        {
+`           total + i;
+        }
+        cout << "The total of all the numbers in the array is: " << total;
     }
 }
 
