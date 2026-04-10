@@ -3,14 +3,18 @@
 #include <fstream>
 using namespace std;
 
-void InputList(int array[], int size);
-int ShowMenu();
-void Display(int array[], int size);
-void Total(int array[], int size);
+void InputList(int array[], int size); //Naomi
+int ShowMenu(); //Naomi
+void Display(int array[], int size); //Naomi
+void Total(int array[], int size); //Naomi
+double GetAverage(int array[], int size); //Taras
+int GetLargest(int array[], int size); //Taras
+int GetSmallest(int array[], int size); //Taras
 
 int main()
 {
-    int finalarray[12], option_num, total = 0;
+    int finalarray[12], option_num, smallest, largest;
+    double average;
     const int arrsize = 12;
 
     cout << "Enter an array of 12 digits: ";
@@ -29,15 +33,17 @@ int main()
     }
     else if (option_num == 3)
     {
-        
+        average = GetAverage(finalarray, arrsize);
+
+        cout << "The Average is: " << fixed << setprecision(2) << average;
     }
     else if (option_num == 4)
     {
-        
+        GetLargest(finalarray, arrsize);
     }
     else if (option_num == 5)
     {
-        
+        GetSmallest(finalarray, arrsize);
     }
     else if (option_num == 6)
     {
@@ -79,7 +85,7 @@ void InputList(int array[], int size)
     {
         cin >> array[i];
     }
-}
+} //Naomi
 
 int ShowMenu()
 {
@@ -90,7 +96,7 @@ int ShowMenu()
     cin >> optionnum;
 
     return optionnum;
-}
+} //Naomi
 
 void Display(int array[], int size)
 {
@@ -98,13 +104,31 @@ void Display(int array[], int size)
         {
             cout << finalarray[i] << " ";
         }
-}
+} //Naomi
 
 void Total(int array[], int size)
 {
+    int total = 0
+
     for (int i = 0; i < arrsize; i++)
     {
        total + i;
     }
     cout << "The total of all the numbers in the array is: " << total; 
+} //Naomi
+
+GetAverage(int array[], int size)
+{
+    int sum = 0;
+
+    for (int i = 0; i < arrsize; i++)
+    {
+        sum += finalarray[i];
+    }
+    return (double)sum / size
+} //Taras
+
+GetLargest(int array[], int size)
+{
+    int largest = finalarray[0]
 }
