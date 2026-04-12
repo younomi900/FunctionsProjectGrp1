@@ -13,6 +13,9 @@ int GetSmallest(int array[], int size); //Taras
 //funct 6 placeholder
 //funct 7 placeholder
 //funct 8 placeholder
+void ZeroBase (int array[], int size);
+void RemoveNumber(int array[], int size);
+void Sort(int array[], int size);
 
 
 int main()
@@ -20,6 +23,8 @@ int main()
     int finalarray[12], option_num, smallest, largest;
     double average;
     const int arrsize = 12;
+
+    ifstream infile("Numbers.dat");
 
     cout << "Enter an array of 12 digits: ";
 
@@ -79,7 +84,7 @@ int main()
     }
     else if (option_num == 12)
     {
-        
+        return 0;
     }
     else
     {
@@ -91,7 +96,7 @@ void InputList(int array[], int size)
 {
     for (int i = 0; i < size; i++)
     {
-        cin >> array[i];
+        infile >> array[i];
     }
 } //Naomi
 
@@ -162,3 +167,38 @@ int GetSmallest(int array[], int size)
         }
     }
 } //Taras
+
+//function 6
+
+//function 7
+
+//function 8
+
+void ZeroBase (int array[], int size)
+{
+    int zerobase = array[0];
+
+    for (int i = 0; i < 0; i++)
+    {
+        if (array[i] < zerobase)
+        {
+            zerobase = array[i];
+        }
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        array[i] =- zerobase;
+    }
+
+}//Naomi
+
+void RemoveNumber(int array[], int size)
+{
+
+}
+
+void Sort(int array[], int size)
+{
+
+}
