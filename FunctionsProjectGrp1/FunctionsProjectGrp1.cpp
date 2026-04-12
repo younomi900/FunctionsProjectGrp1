@@ -10,6 +10,10 @@ void Total(int array[], int size); //Naomi
 double GetAverage(int array[], int size); //Taras
 int GetLargest(int array[], int size); //Taras
 int GetSmallest(int array[], int size); //Taras
+//funct 6 placeholder
+//funct 7 placeholder
+//funct 8 placeholder
+
 
 int main()
 {
@@ -39,11 +43,15 @@ int main()
     }
     else if (option_num == 4)
     {
-        GetLargest(finalarray, arrsize);
+        largest = GetLargest(finalarray, arrsize);
+
+        cout << "The Largest is: " << largest;
     }
     else if (option_num == 5)
     {
-        GetSmallest(finalarray, arrsize);
+        smallest = GetSmallest(finalarray, arrsize);
+
+        cout << "The Smallest is: ";
     }
     else if (option_num == 6)
     {
@@ -117,18 +125,40 @@ void Total(int array[], int size)
     cout << "The total of all the numbers in the array is: " << total; 
 } //Naomi
 
-GetAverage(int array[], int size)
+double GetAverage(int array[], int size)
 {
     int sum = 0;
 
-    for (int i = 0; i < arrsize; i++)
+    for (int i = 0; i < size; i++)
     {
-        sum += finalarray[i];
+        sum += array[i];
     }
-    return (double)sum / size
+    return (double)sum / size;
 } //Taras
 
-GetLargest(int array[], int size)
+int GetLargest(int array[], int size)
 {
-    int largest = finalarray[0]
-}
+    int largest = array[0];
+
+    for(int i = 0; i < size; i++)
+    {
+        if (array[i] > largest)
+        {
+            largest = array[i];
+        }
+    }
+    return largest;
+} //Taras
+
+int GetSmallest(int array[], int size)
+{
+    int smallest = array[0];
+    
+    for(int i = 0; i < size; i++)
+    {
+        if (array[i] < smallest)
+        {
+            smallest = array[i];
+        }
+    }
+} //Taras
