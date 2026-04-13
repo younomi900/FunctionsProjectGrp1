@@ -25,8 +25,6 @@ int main()
     double average;
     const int arrsize = 12;
 
-    ifstream infile("numbers.dat");
-
     InputList(finalarray, arrsize);
 
     do
