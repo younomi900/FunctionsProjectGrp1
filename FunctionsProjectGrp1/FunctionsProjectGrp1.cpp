@@ -1,21 +1,22 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
-void InputList(int array[], int size); //Naomi
-int ShowMenu(); //Naomi
-void Display(int array[], int size); //Naomi
-void Total(int array[], int size); //Naomi
+void InputList(int array[], int size); //Collaborative
+int ShowMenu(); //Collaborative
+void Display(int array[], int size); //Collaborative
+void Total(int array[], int size); //Collaborative
 double GetAverage(int array[], int size); //Taras
 int GetLargest(int array[], int size); //Taras
 int GetSmallest(int array[], int size); //Taras
-//funct 6 placeholder
-//funct 7 placeholder
-//funct 8 placeholder
-void ZeroBase (int array[], int size);
-void RemoveNumber(int array[], int size);
-void Sort(int array[], int size);
+//funct 6 placeholder, Szymon
+//funct 7 placeholder, Szymon
+//funct 8 placeholder, Szymon
+void ZeroBase (int array[], int size);//Naomi
+void RemoveNumber(int array[], int size);//Naomi
+void Sort(int array[], int size);//Naomi
 
 
 int main()
@@ -24,76 +25,74 @@ int main()
     double average;
     const int arrsize = 12;
 
-    ifstream infile("Numbers.dat");
-
-    cout << "Enter an array of 12 digits: ";
+    ifstream infile("numbers.dat");
 
     InputList(finalarray, arrsize);
 
-    option_num = ShowMenu();
+    do
+    {
+        option_num = ShowMenu();
 
-    if (option_num == 1)
-    {
-        Display(finalarray, arrsize);
-    }
-    else if (option_num == 2)
-    {
-        Total(finalarray, arrsize);
-    }
-    else if (option_num == 3)
-    {
-        average = GetAverage(finalarray, arrsize);
+        cout << endl;
 
-        cout << "The Average is: " << fixed << setprecision(2) << average;
-    }
-    else if (option_num == 4)
-    {
-        largest = GetLargest(finalarray, arrsize);
+        switch (option_num)
+        {
+        case 1:
+            Display(finalarray, arrsize);
+            break;
+        case 2:
+            Total(finalarray, arrsize);
+            break;
+        case 3:
+            average = GetAverage(finalarray, arrsize);
+            
+            cout << "The average of the values in the array is: " << fixed << setprecision(2) << average;
+            break;
+        case 4:
+            smallest = GetSmallest(finalarray, arrsize);
 
-        cout << "The Largest is: " << largest;
-    }
-    else if (option_num == 5)
-    {
-        smallest = GetSmallest(finalarray, arrsize);
+            cout << "The smallest value in the array is: " << smallest;
+            break;
+        case 5:
+            largest = GetLargest(finalarray, arrsize);
 
-        cout << "The Smallest is: ";
-    }
-    else if (option_num == 6)
-    {
-        
-    }
-    else if (option_num == 7)
-    {
-        
-    }
-    else if (option_num == 8)
-    {
-        
-    }
-    else if (option_num == 9)
-    {
-        
-    }
-    else if (option_num == 10)
-    {
-        
-    }
-    else if (option_num == 11)
-    {
-        
-    }
-    else if (option_num == 12)
-    {
-        return 0;
-    }
-    else
-    {
-        cout << "Invalid Number. Select One Of The 12 Options"; //error prevention, Written by naomi
-    }
+            cout << "The largest value in the array is: " << largest;
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            ZeroBase(finalarray, arrsize);
+
+            cout << "The values in the array have been minused by the smallest value.\n";
+
+            for (int i = 0; i < 12; i++)
+            {
+                cout << finalarray[i] << " ";
+            }
+            break;
+        case 10:
+
+        case 11:
+
+        case 12:
+            return 0;
+
+        default: "Invalid Option, select 1 of the 12 functions: ";
+            break;
+        }
+
+    } while (option_num != 12);
+
 }
 
 void InputList(int array[], int size)
 {
+    ifstream infile("numbers.dat");
+
     for (int i = 0; i < size; i++)
     {
         infile >> array[i];
@@ -104,7 +103,7 @@ int ShowMenu()
 {
     int optionnum;
 
-    cout << "\n 1. Display\n 2. GetTotal\n 3. GetAverage\n 4. GetLargest\n 5. GetSmallest\n 6. GetNumOcurrences\n 7. ScaleUp\n 8. Reverse\n 9. ZeroBase\n 10. RemoveNumber\n 11. Sort\n 12. Quit\n";
+    cout << "\n 1. Display\n 2. GetTotal\n 3. GetAverage\n 4. GetLargest\n 5. GetSmallest\n 6. GetNumOcurrences\n 7. ScaleUp\n 8. Reverse\n 9. ZeroBase\n 10. RemoveNumber\n 11. Sort\n 12. Quit\n \nChoose an option: ";
 
     cin >> optionnum;
 
@@ -113,19 +112,19 @@ int ShowMenu()
 
 void Display(int array[], int size)
 {
-    for (int i = 0; i < arrsize; i++)
+    for (int i = 0; i < size; i++)
         {
-            cout << finalarray[i] << " ";
+            cout << array[i] << " ";
         }
 } //Naomi
 
 void Total(int array[], int size)
 {
-    int total = 0
+    int total = 0;
 
-    for (int i = 0; i < arrsize; i++)
+    for (int i = 0; i < size; i++)
     {
-       total + i;
+       total += array[i];
     }
     cout << "The total of all the numbers in the array is: " << total; 
 } //Naomi
@@ -166,6 +165,7 @@ int GetSmallest(int array[], int size)
             smallest = array[i];
         }
     }
+    return smallest;
 } //Taras
 
 //function 6
@@ -188,13 +188,28 @@ void ZeroBase (int array[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        array[i] =- zerobase;
+        array[i] -= zerobase;
     }
 
 }//Naomi
 
 void RemoveNumber(int array[], int size)
 {
+    int numtoerase;
+
+    cout << "Enter the corresponding number you want to remove from the array: ";
+
+    cin >> numtoerase;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (i == numtoerase)
+        {
+            array[i] =- array[i];
+        }
+    }
+
+    cout << "Successfully removed.";
 
 }
 
