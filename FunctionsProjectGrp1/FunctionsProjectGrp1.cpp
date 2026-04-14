@@ -11,9 +11,9 @@ void Total(int array[], int size); //Collaborative
 double GetAverage(int array[], int size); //Taras
 int GetLargest(int array[], int size); //Taras
 int GetSmallest(int array[], int size); //Taras
-//funct 6 placeholder, Szymon
-//funct 7 placeholder, Szymon
-//funct 8 placeholder, Szymon
+int GetNumOccurences(int array[], int size);//Szymon
+void ScaleUp(int array[], int size);//Szymon
+void Reverse(int array[], int size);//Szymon
 void ZeroBase (int array[], int size);//Naomi
 void RemoveNumber(int array[], int size);//Naomi
 void Sort(int array[], int size);//Naomi
@@ -21,7 +21,7 @@ void Sort(int array[], int size);//Naomi
 
 int main()
 {
-    int finalarray[12], option_num, smallest, largest;
+    int finalarray[12], option_num, smallest, largest, occurences;
     double average;
     const int arrsize = 12;
 
@@ -57,10 +57,14 @@ int main()
             cout << "The largest value in the array is: " << largest;
             break;
         case 6:
+            occurences = GetNumOccurences(finalarray, arrsize);
+            cout << "The selected number has occured " << occurences << " times in the array.";
             break;
         case 7:
+            ScaleUp(finalarray, arrsize);
             break;
         case 8:
+            Reverse(finalarray, arrsize);
             break;
         case 9:
             ZeroBase(finalarray, arrsize);
@@ -166,11 +170,63 @@ int GetSmallest(int array[], int size)
     return smallest;
 } //Taras
 
-//function 6
+int GetNumOccurences(int array[], int size)
+{
+    int occurnum, occurences = 0;
+    cout << "enter a number to find out how much times it occurs in the array: ";
+    cin >> occurnum;
 
-//function 7
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] == occurnum)
+        {
+            occurences++;
+        }
+    }
+    return occurences;
+}//Szymon
 
-//function 8
+void ScaleUp(int array[], int size)
+{
+    int scalefactor = 0;
+
+    cout << "enter scalefactor: ";
+    cin >> scalefactor;
+
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = array[i] * scalefactor;
+    }
+
+    cout << "the array looks like this now:\n";
+    for (int i = 0; i < size; i++)
+        {
+            cout << array[i] << " ";
+        }
+}
+//Szymon
+
+void Reverse(int array[], int size)
+{
+    int temp[12];
+
+    for(int i = 0; i < size; i++)
+    {
+        temp[i] = array[size - i - 1];
+    }
+    
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = temp[i];
+    }//updates array values from temporary array to the main one
+    
+    cout << "Ok, array reversed. It now looks like this:\n";
+    for (int i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+}
+//Szymon
 
 void ZeroBase (int array[], int size)
 {
