@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <algorithm>
 using namespace std;
 
 void InputList(int array[], int size); //Collaborative
@@ -27,6 +26,7 @@ int main()
 
     InputList(finalarray, arrsize);
 
+    ofstream outfile("numbers.dat");
     do
     {
         option_num = ShowMenu();
@@ -77,10 +77,16 @@ int main()
             }
             break;
         case 10:
-
+            RemoveNumber(finalarray, arrsize);
+            break;
         case 11:
-
+            Sort(finalarray, arrsize);
+            break;
         case 12:
+            for (int i = 0; i < arrsize; i++)
+            {
+                outfile << finalarray[i] << endl;
+            }
             return 0;
 
         default: "Invalid Option, select 1 of the 12 functions: ";
@@ -97,7 +103,7 @@ void InputList(int array[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        infile >> array[i];
+        cin >> array[i];
     }
 } //Naomi
 
@@ -259,7 +265,7 @@ void RemoveNumber(int array[], int size)
     {
         if (i == numtoerase)
         {
-            array[i] =- array[i];
+            array[i - 1] -= array[i - 1];
         }
     }
 
@@ -269,5 +275,45 @@ void RemoveNumber(int array[], int size)
 
 void Sort(int array[], int size)
 {
+    char highorlow;
+    int temp;
 
+    cout << "Sort by Highest (H) or Lowest (L)?\n";
+
+    cin >> highorlow;
+
+    if (highorlow == 'H' || highorlow == 'h')
+    {
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - i - 1; j++)
+            {
+                if (array[j] < array[j + 1])
+                {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+    else if (highorlow == 'L' || highorlow == 'l')
+    {
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - i - 1; j++)
+            {
+                if (array[j] > array[j + 1])
+                {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+    else
+    {
+        cout << "Invalid, please select higher (H) or lower (L).";
+    }
 }
