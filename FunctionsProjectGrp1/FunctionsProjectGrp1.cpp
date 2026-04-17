@@ -194,10 +194,19 @@ int GetNumOccurences(int array[], int size)
 
 void ScaleUp(int array[], int size)
 {
-    int scalefactor = 0;
+    double scalefactor = 0;
 
     cout << "enter scalefactor: ";
     cin >> scalefactor;
+
+    while(cin.fail())
+    {
+        cout << "not an integer/float number, please try again\n";
+        cin.clear();
+        cin.ignore(256,'\n');
+        cout << "enter scalefactor: ";
+        cin >> scalefactor;
+    }
 
     for (int i = 0; i < size; i++)
     {
@@ -209,8 +218,7 @@ void ScaleUp(int array[], int size)
         {
             cout << array[i] << " ";
         }
-}
-//Szymon
+}//Szymon
 
 void Reverse(int array[], int size)
 {
