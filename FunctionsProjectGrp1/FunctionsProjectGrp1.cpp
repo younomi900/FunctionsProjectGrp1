@@ -20,9 +20,9 @@ void Sort(int array[], int size);//Naomi
 
 int main()
 {
-    int finalarray[12], option_num, smallest, largest, occurences;
+    int finalarray[50], option_num, smallest, largest, occurences;
     double average;
-    const int arrsize = 12;
+    const int arrsize = 50;
 
     InputList(finalarray, arrsize);
 
@@ -105,7 +105,7 @@ void InputList(int array[], int size)
     {
         cin >> array[i];
     }
-} //Naomi
+} //Collaborative
 
 int ShowMenu()
 {
@@ -116,7 +116,7 @@ int ShowMenu()
     cin >> optionnum;
 
     return optionnum;
-} //Naomi
+} //Collaborative
 
 void Display(int array[], int size)
 {
@@ -124,7 +124,7 @@ void Display(int array[], int size)
         {
             cout << array[i] << " ";
         }
-} //Naomi
+} //Collaborative
 
 void Total(int array[], int size)
 {
@@ -135,7 +135,7 @@ void Total(int array[], int size)
        total += array[i];
     }
     cout << "The total of all the numbers in the array is: " << total; 
-} //Naomi
+} //Collaborative
 
 double GetAverage(int array[], int size)
 {
@@ -179,7 +179,7 @@ int GetSmallest(int array[], int size)
 int GetNumOccurences(int array[], int size)
 {
     int occurnum, occurences = 0;
-    cout << "enter a number to find out how much times it occurs in the array: ";
+    cout << "Enter a number to find out how much times it occurs in the array: ";
     cin >> occurnum;
 
     for (int i = 0; i < size; i++)
@@ -196,12 +196,12 @@ void ScaleUp(int array[], int size)
 {
     double scalefactor = 0;
 
-    cout << "enter scalefactor: ";
+    cout << "Enter scalefactor: ";
     cin >> scalefactor;
 
     while(cin.fail())
     {
-        cout << "not an integer/float number, please try again\n";
+        cout << "Not an integer/float number, please try again\n";
         cin.clear();
         cin.ignore(256,'\n');
         cout << "enter scalefactor: ";
@@ -213,7 +213,7 @@ void ScaleUp(int array[], int size)
         array[i] = array[i] * scalefactor;
     }
 
-    cout << "the array looks like this now:\n";
+    cout << "The array looks like this now:\n";
     for (int i = 0; i < size; i++)
         {
             cout << array[i] << " ";
@@ -265,7 +265,7 @@ void RemoveNumber(int array[], int size)
 {
     int numtoerase;
 
-    cout << "Enter the corresponding number you want to remove from the array: ";
+    cout << "Enter the corresponding number you want to remove from the array (1-50): ";
 
     cin >> numtoerase;
 
@@ -273,7 +273,11 @@ void RemoveNumber(int array[], int size)
     {
         if (i == numtoerase)
         {
-            array[i - 1] -= array[i - 1];
+            size = size - 1;
+            for (int j = i; j < n; j++)
+            {
+                array[j] = array[j + 1];
+            }
         }
     }
 
