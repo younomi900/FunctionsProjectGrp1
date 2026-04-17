@@ -274,7 +274,7 @@ void RemoveNumber(int array[], int size)
         if (i == numtoerase)
         {
             size = size - 1;
-            for (int j = i; j < n; j++)
+            for (int j = i; j < size; j++)
             {
                 array[j] = array[j + 1];
             }
