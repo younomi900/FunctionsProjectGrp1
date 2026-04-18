@@ -22,7 +22,7 @@ int main()
 {
     int finalarray[50], option_num, smallest, largest, occurences;
     double average;
-    const int arrsize = 50;
+    int arrsize = 50;
 
     InputList(finalarray, arrsize);
 
