@@ -103,7 +103,7 @@ void InputList(int array[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        cin >> array[i];
+        infile >> array[i];
     }
 } //Collaborative
 
@@ -268,10 +268,15 @@ void RemoveNumber(int array[], int size)
     cout << "Enter the corresponding number you want to remove from the array (1-50): ";
 
     cin >> numtoerase;
+    if (numtoerase > size || numtoerase < 1)
+    {
+        cout << "Invalid Number.";
+        return;
+    }
 
     for (int i = 0; i < size; i++)
     {
-        if (i == numtoerase)
+        if (i + 1 == numtoerase)
         {
             size = size - 1;
             for (int j = i; j < size; j++)
