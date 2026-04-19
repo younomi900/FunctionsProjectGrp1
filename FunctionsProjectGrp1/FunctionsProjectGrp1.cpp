@@ -231,7 +231,7 @@ void ScaleUp(int array[], int size)
 
 void Reverse(int array[], int size)
 {
-    int temp[12];
+    int temp[50];
 
     for(int i = 0; i < size; i++)
     {
