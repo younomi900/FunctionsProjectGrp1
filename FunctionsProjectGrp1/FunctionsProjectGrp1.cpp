@@ -182,6 +182,15 @@ int GetNumOccurences(int array[], int size)
     cout << "enter a number to find out how much times it occurs in the array: ";
     cin >> occurnum;
 
+    while(cin.fail())
+    {
+        cout << "not an integer/float number, please try again\n";
+        cin.clear();
+        cin.ignore(256,'\n');
+        cout << "enter a number to find out how much times it occurs in the array: ";
+        cin >> occurnum;
+    }
+
     for (int i = 0; i < size; i++)
     {
         if (array[i] == occurnum)
