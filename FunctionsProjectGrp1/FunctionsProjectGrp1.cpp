@@ -10,7 +10,7 @@ void Total(int array[], int size); //Collaborative
 double GetAverage(int array[], int size); //Taras
 int GetLargest(int array[], int size); //Taras
 int GetSmallest(int array[], int size); //Taras
-int GetNumOccurences(int array[], int size);//Szymon
+int GetNumOccurrences(int array[], int size);//Szymon
 void ScaleUp(int array[], int size);//Szymon
 void Reverse(int array[], int size);//Szymon
 void ZeroBase (int array[], int size);//Naomi
@@ -20,7 +20,7 @@ void Sort(int array[], int size);//Naomi
 
 int main()
 {
-    int finalarray[50], option_num, smallest, largest, occurences;
+    int finalarray[50], option_num, smallest, largest, occurrences;
     double average;
     int arrsize = 50;
 
@@ -57,8 +57,8 @@ int main()
             cout << "The largest value in the array is: " << largest;
             break;
         case 6:
-            occurences = GetNumOccurences(finalarray, arrsize);
-            cout << "The selected number has occured " << occurences << " times in the array.";
+            occurrences = GetNumOccurrences(finalarray, arrsize);
+            cout << "The selected number has occured " << occurrences << " times in the array.";
             break;
         case 7:
             ScaleUp(finalarray, arrsize);
@@ -176,9 +176,9 @@ int GetSmallest(int array[], int size)
     return smallest;
 } //Taras
 
-int GetNumOccurences(int array[], int size)
+int GetNumOccurrences(int array[], int size)
 {
-    int occurnum, occurences = 0;
+    int occurnum, occurrences = 0;
     cout << "Enter a number to find out how much times it occurs in the array: ";
     cin >> occurnum;
 
@@ -195,10 +195,10 @@ int GetNumOccurences(int array[], int size)
     {
         if (array[i] == occurnum)
         {
-            occurences++;
+            occurrences++;
         }
     }
-    return occurences;
+    return occurrences;
 }//Szymon
 
 void ScaleUp(int array[], int size)
